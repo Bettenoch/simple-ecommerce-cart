@@ -3,16 +3,22 @@ import { useDispatch, useSelector } from 'react-redux'
 import { removeProductFromCart } from './redux/cartSlice'
 
 const Cart = () => {
-    const {products, totalAmount} = useSelector((state) => state.cart)
+    const {cart, totalAmount, totalItems} = useSelector((state) => state.cart)
     const dispatch = useDispatch()
   return (
     <div className='flex flex-col w-full border-solid-[1px]'>
         <h3>Your Shopping List</h3>
         {
-            products.length === 0 ? (
+            cart.length === 0 ? (
                 <p>Your Cart is Empty</p>
             ): (
-                <ul>
+               <div className='flex flex-col w-full'>
+                <div>
+                    Products: {totalItems}
+
+                    Amount: {totalAmount}
+                </div>
+                 <ul>
                     {
                         products.map((item) => {
                             return (
@@ -24,6 +30,7 @@ const Cart = () => {
                         })
                     }
                 </ul>
+               </div>
                 
             )
 
