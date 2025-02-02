@@ -43,14 +43,15 @@ const cartSlice = createSlice({
                 if (product.quantity > 1) {
                     product.quantity -= 1
                     
-                    state.totalAmount -= product.price;
+                    state.totalAmount = Math.max(0, state.totalAmount - product.price);
                 } else {
-                    state.totalAmount -= product.price * product.quantity;
+                    state.totalAmount = Math.max(0, state.totalAmount - (product.price * product.quantity));
                     
                     state.cart.splice(productIndex, 1)
                 }
                 state.totalItems--
             }
+            state.totalAmount = Math.max(0, state.totalAmount);
             localStorage.setItem("cart", JSON.stringify(state.cart));
             localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount))
             localStorage.setItem("totalItems", JSON.stringify(state.totalItems)) 
