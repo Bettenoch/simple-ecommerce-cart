@@ -1,0 +1,20 @@
+.Cart-Items {
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-items: end;
+    align-items: center;
+}
+
+.cart-banner {
+    display: flex;
+    gap: 2px;
+}
+
+.item-number {
+    font-size: x-large;
+    font-weight: bold;
+}
+.cart-img {
+    color: chartreuse;
+}
