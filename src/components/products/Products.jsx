@@ -5,9 +5,7 @@ import { addProductToCart } from '../redux/cartSlice';
 
 const Products = () => {
   const dispatch = useDispatch();
-  const handleAddItem = (product) => {
-    dispatch(addProductToCart(product))
-  }
+  
 
   return (
     <ul className='w-full p-6 mt-6 grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4'>
@@ -26,7 +24,7 @@ const Products = () => {
                   <li className=''>Amount<span className='text-2xl font-light text-cyan-100'>{item.price}</span></li>
                 </ul>
               </figcaption>
-              <button onClick={handleAddItem(item)}>Add to Cart</button>
+              <button onClick={() => dispatch(addProductToCart(item))}>Add to Cart</button>
 
       
 
