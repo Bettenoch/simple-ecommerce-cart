@@ -1,0 +1,15 @@
+.search-bar {
+    width: 100%;
+    display: flex;
+    border-radius: 2rem;
+    background-color: rgb(193, 229, 237);
+    color: rgb(2, 24, 40);
+}
+
+.search-box {
+    padding: 5px;
+    width: 100%;
+    border: none;
+    outline: none;
+    margin-left: 5px;
+}
