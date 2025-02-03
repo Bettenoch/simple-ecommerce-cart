@@ -66,8 +66,6 @@
 
 ### Key Features <a name="key-features"></a>
 
-> Describe between 1-3 key features of the application.
-
 - **[View a list of available products]**
 - **[Add products to the shopping cart2]**
 - **[Remove individual products from the cart]**
@@ -178,7 +176,6 @@ You can deploy this project using:
 
 ## 🔭 Future Features <a name="future-features"></a>
 
-> Describe 1 - 3 features you will add to the project.
 
 - [ ] **[User Authentication: Implement user login and registration.]**
 - [ ] **[Checkout Process: Add a checkout page for order processing.]**
