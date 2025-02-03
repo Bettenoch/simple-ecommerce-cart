@@ -3,10 +3,14 @@ import "../../products.css";
 import { ProductList } from "../data";
 import { useDispatch } from "react-redux";
 import { addProductToCart } from "../redux/cartSlice";
-import CartDisplay from "./CartDisplay";
+import SearchBar from './SearchBar';
 
 export default function Products() {
   const dispatch = useDispatch();
+  const searchTerm = useSelector((state) => state.search.toLowerCase());
+  const filteredProducts = ProductList.filter((item) =>
+    item.name.toLowerCase().includes(searchTerm)
+  );
   return (
     <section className="product-container">
       
@@ -16,7 +20,7 @@ export default function Products() {
           <h1>GET YOUR FAVOURITE PRODUCTS</h1>
         </div>
         <ul className="product-display">
-          {ProductList.map((item) => {
+          {filteredProducts.map((item) => {
             return (
               <li key={item.id} className="item-main">
                <div className="item-card">
