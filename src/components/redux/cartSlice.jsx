@@ -55,10 +55,27 @@ const cartSlice = createSlice({
             localStorage.setItem("cart", JSON.stringify(state.cart));
             localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount))
             localStorage.setItem("totalItems", JSON.stringify(state.totalItems)) 
-        }
-
+        },
+        removeAllProductInstance: (state, action) => {
+            const productId = action.payload;
+            const productToRemove = state.cart.find((product) => product.id === productId);
+      
+            if (productToRemove) {
+              const totalProductAmount = productToRemove.price * productToRemove.quantity;
+              state.cart = state.cart.filter((product) => product.id !== productId);
+              state.totalAmount = Math.max(0, state.totalAmount - totalProductAmount);
+              state.totalItems -= productToRemove.quantity;
+      
+              localStorage.setItem("cart", JSON.stringify(state.cart));
+              localStorage.setItem("totalAmount", JSON.stringify(state.totalAmount));
+              localStorage.setItem("totalItems", JSON.stringify(state.totalItems));
+              toast.success("All instances of the product have been removed from the cart");
+            } else {
+              toast.error("Product not found in the cart");
+            }
+          },
     }
 });
 
-export const {addProductToCart, removeProductFromCart} = cartSlice.actions;
+export const {addProductToCart, removeProductFromCart, removeAllProductInstance} = cartSlice.actions;
 export default cartSlice.reducer;
