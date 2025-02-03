@@ -1,7 +1,7 @@
 import React from "react";
 import { useSelector, useDispatch } from "react-redux";
 import "../../cart.css";
-import { removeProductFromCart } from "../redux/cartSlice";
+import { addProductToCart, removeAllProductInstance, removeProductFromCart } from "../redux/cartSlice";
 
 export default function Cart() {
   const { cart, totalItems, totalAmount } = useSelector((state) => state.cart);
@@ -30,16 +30,29 @@ export default function Cart() {
                 </div>
                 <div className="product-details">
                   <p className="product-name">{product.name} ({product.quantity})</p>
-                  <article className="product-descp">
-                    {product.description}
-                  </article>
+                
                 </div>
+                <div className="btn-list">
                 <button
-                  className="item-btn"
+                  className="minus-btn"
                   onClick={() => dispatch(removeProductFromCart(product.id))}
                 >
-                  Remove
+                  -
                 </button>
+                <button
+                  className="add-btn"
+                  onClick={() => dispatch(addProductToCart(product))}
+                >
+                  +
+                </button>
+                <button
+                className="remove-all"
+                onClick={() => dispatch(removeAllProductInstance(product.id))}
+                >
+                  Remove All
+
+                </button>
+                </div>
               </li>
             );
           })}
