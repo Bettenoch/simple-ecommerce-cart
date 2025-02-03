@@ -2,7 +2,8 @@
   display: flex;
   width: 100%;
   min-height: 100vh;
-  margin: 50px;
+  
+  overflow-x: hidden;
 }
 
 .cart-box {
@@ -24,14 +25,15 @@
 
 .cart-holder {
   display: grid;
-  grid-template-columns: repeat(2, 1fr);
+  width: 100%;
+  grid-template-columns: repeat(1, 1fr);
   place-content: center;
   gap: 16px;
   gap: 6;
   list-style: none;
 }
 .product-card {
-  background-color: #afe099;
+  background-color: #c9d6c4;
   color: white;
   width: 100%;
   align-items: center;
@@ -40,7 +42,7 @@
   border-radius: 5px;
   text-align: center;
   display: flex;
-  flex-direction: column;
+  justify-content: space-around;
   gap: 6;
   
 }
@@ -57,9 +59,19 @@
 
 .item-btn {
   width: 100%;
+  max-width: max-content;
+}
+.add-btn, .minus-btn {
+  outline: none;
+  border: none;
 }
 
 .card-image{
   width: 100px;
   height: 100px;
+}
+
+.btn-list {
+  display: flex;
+  gap: 5px;
 }
